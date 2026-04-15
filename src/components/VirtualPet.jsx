@@ -32,7 +32,7 @@ export default function VirtualPet({ pet, onPetUpdate }) {
   return (
     <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl border-2 border-green-200 p-5 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <span className="absolute top-2 right-4 text-3xl opacity-20">🦸</span>
+        <span className="absolute top-2 right-4 text-3xl opacity-20">🦸‍♀️</span>
         <span className="absolute bottom-3 left-2 text-2xl opacity-20">⚡</span>
         <span className="absolute top-1/2 right-2 text-xl opacity-20">🌟</span>
       </div>

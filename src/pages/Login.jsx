@@ -32,7 +32,7 @@ export default function Login() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="text-6xl mb-3">🦸</div>
+          <div className="text-6xl mb-3">🦸‍♀️</div>
           <h1 className="text-3xl font-black text-primary">HeroHabit</h1>
           <p className="text-muted-foreground font-semibold mt-1">Your daily habit hero! 🌟</p>
         </div>
@@ -82,7 +82,7 @@ export default function Login() {
             disabled={loading}
             className="w-full rounded-xl font-black"
           >
-            {loading ? '...' : isSignUp ? 'Create Account 🚀' : 'Log In 🦸'}
+            {loading ? '...' : isSignUp ? 'Create Account 🚀' : 'Log In'}
           </Button>
 
           <button

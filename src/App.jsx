@@ -17,7 +17,7 @@ const AuthenticatedApp = () => {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-background">
         <div className="text-center">
-          <div className="text-5xl animate-bounce mb-3">🦸</div>
+          <div className="text-5xl animate-bounce mb-3">🦸‍♀️</div>
           <p className="font-bold text-muted-foreground">Loading HeroHabit...</p>
         </div>
       </div>

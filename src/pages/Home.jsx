@@ -134,13 +134,13 @@ export default function Home() {
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-1">
           <Sun className="w-6 h-6 text-amber-500" />
-          <h1 className="text-2xl font-black text-foreground">Good day! 🦸</h1>
+          <h1 className="text-2xl font-black text-foreground">Good day! 🌸</h1>
         </div>
         <p className="text-muted-foreground font-semibold">{todayStr}</p>
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center h-40"><div className="text-4xl animate-bounce">🦸</div></div>
+        <div className="flex items-center justify-center h-40"><div className="text-4xl animate-bounce">🦸‍♀️</div></div>
       ) : (
         <div className="space-y-6">
           <VirtualPet pet={pet} onPetUpdate={setPet} />
@@ -172,7 +172,7 @@ export default function Home() {
                   <Button size="sm" className="rounded-full gap-1 font-bold"><Plus className="w-4 h-4" />Add Task</Button>
                 </DialogTrigger>
                 <DialogContent className="rounded-3xl">
-                  <DialogHeader><DialogTitle className="font-black text-xl">Add a Task 🦸</DialogTitle></DialogHeader>
+                  <DialogHeader><DialogTitle className="font-black text-xl">Add a Task 🦸‍♀️</DialogTitle></DialogHeader>
                   <div className="space-y-3 pt-2">
                     <Input placeholder="What's the task?" value={newTask.title} onChange={e => setNewTask(p => ({ ...p, title: e.target.value }))} className="rounded-xl font-semibold" />
                     <Select value={newTask.category} onValueChange={v => setNewTask(p => ({ ...p, category: v }))}>
@@ -181,7 +181,7 @@ export default function Home() {
                     </Select>
                     <Input placeholder="Subject (if homework)" value={newTask.subject} onChange={e => setNewTask(p => ({ ...p, subject: e.target.value }))} className="rounded-xl font-semibold" />
                     <Input placeholder="Due time (e.g. 4:00 PM)" value={newTask.due_time} onChange={e => setNewTask(p => ({ ...p, due_time: e.target.value }))} className="rounded-xl font-semibold" />
-                    <Button onClick={handleAddTask} className="w-full rounded-xl font-black">Add this task! 🦸</Button>
+                    <Button onClick={handleAddTask} className="w-full rounded-xl font-black">Add this task! 🦸‍♀️</Button>
                   </div>
                 </DialogContent>
               </Dialog>
@@ -193,7 +193,7 @@ export default function Home() {
               </AnimatePresence>
               {pendingTasks.length === 0 && totalCount === 0 && (
                 <div className="text-center py-8 text-muted-foreground">
-                  <div className="text-4xl mb-2">🦸</div>
+                  <div className="text-4xl mb-2">🦸‍♀️</div>
                   <p className="font-bold">No tasks yet! Add one above.</p>
                 </div>
               )}
