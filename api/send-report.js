@@ -32,7 +32,12 @@ export default async function handler(req, res) {
     .limit(1)
     .single();
 
-  const parentEmail = parentSettings?.email || parentSettings?.parent_email;
+  const parentEmail = parentSettings?.parent_email;
+  const parentName = parentSettings?.parent_name;
+
+  if (!parentSettings?.weekly_report) {
+    return res.status(200).json({ skipped: true, reason: 'weekly_report disabled' });
+  }
 
   // Group tasks by child
   const byChild = {};
@@ -73,7 +78,7 @@ export default async function handler(req, res) {
   const html = `
     <div style="font-family:sans-serif;max-width:600px;margin:auto;padding:24px">
       <h2 style="color:#7c3aed">🌟 Weekly Hero Habits Report</h2>
-      <p style="color:#555">Here's how the week went — ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+      <p style="color:#555">Hi ${parentName || 'there'}, here's how the week went — ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
       <hr style="border:none;border-top:2px solid #f5f3ff;margin:16px 0"/>
       ${childSections.length > 0 ? childSections : '<p style="color:#888">No tasks completed this week.</p>'}
       <hr style="border:none;border-top:2px solid #f5f3ff;margin:24px 0"/>
