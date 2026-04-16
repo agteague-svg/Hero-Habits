@@ -53,12 +53,49 @@ export default function ParentDashboard() {
   const handleSendReport = async () => {
     if (!formData.parent_email) return;
     setSending(true);
+
+    const completedThisWeek = tasks.filter(t => t.completed).length;
+    const pending = tasks.filter(t => !t.completed).length;
+    const highPriority = tasks.filter(t => !t.completed && t.priority === "high");
+
+    const body = `Hi ${formData.parent_name || "Parent"}! 🦸
+
+Here's ${formData.child_name || "your child"}'s HeroHabit Weekly Progress Report:
+
+🌟 Pet Status: ${pet ? `${pet.pet_name} is Level ${pet.level} with a ${pet.streak_days || 0}-day streak!` : "No pet yet!"}
+
+✅ Tasks Completed: ${completedThisWeek}
+📌 Tasks Still Pending: ${pending}
+
+${highPriority.length > 0 ? `⚠️ High Priority Items:\n${highPriority.map(t => `  • ${t.title} (${t.day_of_week})`).join("\n")}` : "🎉 No urgent tasks right now!"}
+
+Keep encouraging your hero! Every completed task makes them stronger! 🦸⚡
+
+With love,
+The HeroHabit App 🦸`.trim();
+
     try {
-      const response = await fetch('/api/send-report');
-      const data = await response.json();
-      if (data.sent || data.skipped) {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          from: 'HeroHabit <onboarding@resend.dev>',
+          to: formData.parent_email,
+          subject: `🦸 HeroHabit Weekly Update for ${formData.child_name || "your child"}!`,
+          text: body,
+        })
+      });
+
+      if (response.ok) {
         setSent(true);
         setTimeout(() => setSent(false), 3000);
+      } else {
+        const err = await response.json();
+        console.error('Resend error:', err);
+        alert('Could not send email. Make sure the email is verified in Resend.');
       }
     } catch (err) {
       console.error('Email error:', err);
