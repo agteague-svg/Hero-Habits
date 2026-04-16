@@ -17,6 +17,7 @@ export default function ParentDashboard() {
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [savedSettings, setSavedSettings] = useState(false);
   const [formData, setFormData] = useState({ parent_name: "", parent_email: "", child_name: "", notifications_enabled: true, weekly_report: true, event_reminders: true });
 
   useEffect(() => { if (user) loadData(); }, [user]);
@@ -45,6 +46,8 @@ export default function ParentDashboard() {
       const { data: created } = await supabase.from('parent_settings').insert({ ...formData, user_id: user.id }).select().single();
       setSettings(created);
     }
+    setSavedSettings(true);
+    setTimeout(() => setSavedSettings(false), 2000);
   };
 
   const handleSendReport = async () => {
@@ -149,7 +152,9 @@ export default function ParentDashboard() {
                   </div>
                 ))}
               </div>
-              <Button onClick={handleSaveSettings} variant="outline" className="w-full rounded-xl font-bold">Save Settings 💾</Button>
+              <Button onClick={handleSaveSettings} variant="outline" className={`w-full rounded-xl font-bold transition-all ${savedSettings ? "bg-green-500 text-white border-green-500" : ""}`}>
+                {savedSettings ? "✅ Saved!" : "Save Settings 💾"}
+              </Button>
             </div>
           </div>
 
