@@ -72,20 +72,16 @@ ${highPriority.length > 0 ? `⚠️ High Priority Items:\n${highPriority.map(t =
 Keep encouraging your hero! Every completed task makes them stronger! 🦸⚡
 
 With love,
-The HeroHabit App 🦸`.trim();
+The HeroHabit App 🦸`;
 
     try {
-      const response = await fetch('https://api.resend.com/emails', {
+      const response = await fetch('/api/send-report', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from: 'HeroHabit <onboarding@resend.dev>',
           to: formData.parent_email,
           subject: `🦸 HeroHabit Weekly Update for ${formData.child_name || "your child"}!`,
-          text: body,
+          text: body
         })
       });
 
@@ -99,6 +95,7 @@ The HeroHabit App 🦸`.trim();
       }
     } catch (err) {
       console.error('Email error:', err);
+      alert('Something went wrong sending the email.');
     }
     setSending(false);
   };
