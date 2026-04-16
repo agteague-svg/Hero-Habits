@@ -73,17 +73,17 @@ export default function WeeklySchedule() {
           <DialogTrigger asChild>
             <Button className="rounded-full gap-1 font-bold"><Plus className="w-4 h-4" />Add Event</Button>
           </DialogTrigger>
-          <DialogContent className="rounded-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="rounded-3xl max-h-[90vh] overflow-y-auto bg-white">
             <DialogHeader><DialogTitle className="font-black text-xl">Add to Schedule 📅</DialogTitle></DialogHeader>
             <div className="space-y-3 pt-2">
               <Input placeholder="Event name" value={newEvent.title} onChange={e => setNewEvent(p => ({ ...p, title: e.target.value }))} className="rounded-xl font-semibold" />
               <Select value={newEvent.category} onValueChange={v => setNewEvent(p => ({ ...p, category: v }))}>
                 <SelectTrigger className="rounded-xl font-semibold"><SelectValue /></SelectTrigger>
-                <SelectContent>{CATEGORIES.map(c => <SelectItem key={c} value={c} className="font-semibold capitalize">{c.replace("_", " ")}</SelectItem>)}</SelectContent>
+                <SelectContent className="bg-white">{CATEGORIES.map(c => <SelectItem key={c} value={c} className="font-semibold capitalize">{c.replace("_", " ")}</SelectItem>)}</SelectContent>
               </Select>
               <Select value={newEvent.day_of_week} onValueChange={v => setNewEvent(p => ({ ...p, day_of_week: v }))}>
                 <SelectTrigger className="rounded-xl font-semibold"><SelectValue /></SelectTrigger>
-                <SelectContent>{DAYS.map(d => <SelectItem key={d} value={d} className="font-semibold">{d}</SelectItem>)}</SelectContent>
+                <SelectContent className="bg-white">{DAYS.map(d => <SelectItem key={d} value={d} className="font-semibold">{d}</SelectItem>)}</SelectContent>
               </Select>
               <div className="grid grid-cols-2 gap-2">
                 <Input placeholder="Start (e.g. 3:30 PM)" value={newEvent.start_time} onChange={e => setNewEvent(p => ({ ...p, start_time: e.target.value }))} className="rounded-xl font-semibold" />

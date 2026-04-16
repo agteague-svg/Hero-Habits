@@ -171,13 +171,13 @@ export default function Home() {
                 <DialogTrigger asChild>
                   <Button size="sm" className="rounded-full gap-1 font-bold"><Plus className="w-4 h-4" />Add Task</Button>
                 </DialogTrigger>
-                <DialogContent className="rounded-3xl">
+                <DialogContent className="rounded-3xl overflow-y-auto bg-white">
                   <DialogHeader><DialogTitle className="font-black text-xl">Add a Task 🦸‍♀️</DialogTitle></DialogHeader>
                   <div className="space-y-3 pt-2">
                     <Input placeholder="What's the task?" value={newTask.title} onChange={e => setNewTask(p => ({ ...p, title: e.target.value }))} className="rounded-xl font-semibold" />
                     <Select value={newTask.category} onValueChange={v => setNewTask(p => ({ ...p, category: v }))}>
                       <SelectTrigger className="rounded-xl font-semibold"><SelectValue /></SelectTrigger>
-                      <SelectContent>{CATEGORIES.map(c => <SelectItem key={c} value={c} className="font-semibold capitalize">{c}</SelectItem>)}</SelectContent>
+                      <SelectContent className="bg-white">{CATEGORIES.map(c => <SelectItem key={c} value={c} className="font-semibold capitalize">{c}</SelectItem>)}</SelectContent>
                     </Select>
                     <Input placeholder="Subject (if homework)" value={newTask.subject} onChange={e => setNewTask(p => ({ ...p, subject: e.target.value }))} className="rounded-xl font-semibold" />
                     <Input placeholder="Due time (e.g. 4:00 PM)" value={newTask.due_time} onChange={e => setNewTask(p => ({ ...p, due_time: e.target.value }))} className="rounded-xl font-semibold" />
