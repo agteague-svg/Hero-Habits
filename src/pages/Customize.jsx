@@ -33,6 +33,11 @@ export default function Customize() {
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
 
+  useEffect(() => {
+    const saved = localStorage.getItem("herohabit_theme") || "garden";
+    applyTheme(saved);
+  }, []);
+
   useEffect(() => { if (user) loadPet(); }, [user]);
 
   const loadPet = async () => {

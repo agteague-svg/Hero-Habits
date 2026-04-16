@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, Clock, Star, Trash2 } from "lucide-react";
 
 const CATEGORY_CONFIG = {
-  homework: { color: "bg-blue-100 border-blue-300 text-blue-700", badge: "bg-blue-200 text-blue-800", icon: "📚", label: "Homework" },
-  chore: { color: "bg-amber-100 border-amber-300 text-amber-700", badge: "bg-amber-200 text-amber-800", icon: "🧹", label: "Chore" },
-  band: { color: "bg-purple-100 border-purple-300 text-purple-700", badge: "bg-purple-200 text-purple-800", icon: "🎵", label: "Band" },
-  dance: { color: "bg-pink-100 border-pink-300 text-pink-700", badge: "bg-pink-200 text-pink-800", icon: "💃", label: "Dance" },
-  activity: { color: "bg-green-100 border-green-300 text-green-700", badge: "bg-green-200 text-green-800", icon: "⭐", label: "Activity" },
-  personal: { color: "bg-rose-100 border-rose-300 text-rose-700", badge: "bg-rose-200 text-rose-800", icon: "🌟", label: "Personal" },
+  homework: { color: "bg-blue-200 border-blue-400 text-blue-900", badge: "bg-blue-300 text-blue-900", icon: "📚", label: "Homework" },
+  chore: { color: "bg-amber-200 border-amber-400 text-amber-900", badge: "bg-amber-300 text-amber-900", icon: "🧹", label: "Chore" },
+  band: { color: "bg-purple-200 border-purple-400 text-purple-900", badge: "bg-purple-300 text-purple-900", icon: "🎵", label: "Band" },
+  dance: { color: "bg-pink-200 border-pink-400 text-pink-900", badge: "bg-pink-300 text-pink-900", icon: "💃", label: "Dance" },
+  activity: { color: "bg-green-200 border-green-400 text-green-900", badge: "bg-green-300 text-green-900", icon: "⭐", label: "Activity" },
+  personal: { color: "bg-rose-200 border-rose-400 text-rose-900", badge: "bg-rose-300 text-rose-900", icon: "🌟", label: "Personal" },
 };
 
 const PRIORITY_DOTS = { high: "bg-red-400", medium: "bg-yellow-400", low: "bg-green-400" };

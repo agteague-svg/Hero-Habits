@@ -67,8 +67,8 @@ export default function Tasks() {
           <DialogTrigger asChild>
             <Button className="rounded-full gap-1 font-bold"><Plus className="w-4 h-4" />Add Task</Button>
           </DialogTrigger>
-          <DialogContent className="rounded-3xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader><DialogTitle className="font-black text-xl">New Task 🦸</DialogTitle></DialogHeader>
+          <DialogContent className="rounded-3xl max-h-[90vh] overflow-y-auto bg-white">
+            <DialogHeader><DialogTitle className="font-black text-xl">New Task ✨</DialogTitle></DialogHeader>
             <div className="space-y-3 pt-2">
               <Input placeholder="Task name" value={newTask.title} onChange={e => setNewTask(p => ({ ...p, title: e.target.value }))} className="rounded-xl font-semibold" />
               <Select value={newTask.category} onValueChange={v => setNewTask(p => ({ ...p, category: v }))}>

@@ -26,7 +26,7 @@ export default function Layout({ children }) {
             {navItems.map(({ path, icon: Icon, label }) => {
               const active = location.pathname === path;
               return (
-                <Link key={path} to={path} className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all ${active ? "bg-primary text-white shadow-md scale-105" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
+                <Link key={path} to={path} className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all ${active ? "bg-primary text-black shadow-md scale-105 border-2 border-primary" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
                   <Icon className="w-4 h-4" />{label}
                 </Link>
               );
